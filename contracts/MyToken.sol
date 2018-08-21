@@ -10,11 +10,11 @@ contract Mytoken{
          balance[msg.sender]=totalsupply;
      }
      
-     function balanceOf(address addr) public returns(uint){
+     function balanceOf(address addr) public view returns(uint){
          return balance[addr];
      }
      
-     function transfer(address addrto ,uint value )public returns(bool){
+     function transfer(address addrto ,uint value )public payable returns(bool){
          if(balance[msg.sender]> value && value>0 ){
          balance[msg.sender]=balance[msg.sender]-value;
          balance[addrto]=balance[addrto]+value;
